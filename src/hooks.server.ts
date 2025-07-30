@@ -1,5 +1,4 @@
 import type { Handle } from "@sveltejs/kit";
-import { dev } from "$app/environment";
 
 export const handle: Handle = async ({ event, resolve }) => {
   // Get the response from the request
@@ -24,22 +23,10 @@ export const handle: Handle = async ({ event, resolve }) => {
       "geolocation=(), camera=(), microphone=(), midi=(), usb=()",
   });
 
-  // Log headers in development to verify they're applied
-  if (dev) {
-    console.log(`\n🔍 Headers for ${event.request.method} ${event.url.pathname}:`);
-    response.headers.forEach((value, key) => {
-      // Only show our custom headers and important ones
-      if (key.toLowerCase().startsWith('x-') || 
-          key.toLowerCase().includes('security') ||
-          key.toLowerCase().includes('origin') ||
-          key.toLowerCase().includes('frame') ||
-          key.toLowerCase().includes('content-type') ||
-          key.toLowerCase().includes('referrer') ||
-          key.toLowerCase().includes('permissions')) {
-        console.log(`  ${key}: ${value}`);
-      }
-    });
-  }
+  // CORS
+  setHeaders({
+    "Access-Control-Allow-Origin": "false",
+  });
 
   return response;
 };

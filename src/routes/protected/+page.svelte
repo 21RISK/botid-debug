@@ -32,12 +32,7 @@
 </svelte:head>
 
 <div class="container">
-  <h1>Protected Message Form</h1>
-  <p class="description">
-    This simplified form demonstrates bot protection using BotID and Superforms.
-    Simply enter a message and submit - all submissions are automatically
-    checked for bot activity.
-  </p>
+  <h1>Protected Message Form (superForms)</h1>
 
   {#if $message}
     <div class="message message-{$message.type}" role="alert">
@@ -89,12 +84,6 @@
   h1 {
     color: #333;
     margin-bottom: 0.5rem;
-  }
-
-  .description {
-    color: #666;
-    margin-bottom: 2rem;
-    line-height: 1.5;
   }
 
   .message {
