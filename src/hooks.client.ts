@@ -9,6 +9,10 @@ export function init() {
         path: "/api/post-data",
         method: "POST",
       },
+      {
+        path: "/protected",
+        method: "POST",
+      },
     ],
   });
 }
