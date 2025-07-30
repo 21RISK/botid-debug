@@ -22,7 +22,7 @@
   }
 </script>
 
-<h1>Test BotID Route: from home page</h1>
+<h1>Test BotID Route: from api/post-data</h1>
 
 <form on:submit|preventDefault={handleSubmit}>
   <label for="name">Name:</label>
